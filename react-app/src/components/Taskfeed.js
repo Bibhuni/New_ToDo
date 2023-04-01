@@ -5,10 +5,6 @@ import "./taskfeed.css";
 
 function Taskfeed() {
   const [tasks, setTasks] = useState([]);
-  const [year, setYear] = useState(new Date().getFullYear());
-  const [month, setMonth] = useState(new Date().getMonth() + 1);
-  const [startDate, setStartDate] = useState(null);
-  const [endDate, setEndDate] = useState(null);
   const [success, setSuccess] = useState(false);
 
   useEffect(() => {
@@ -19,7 +15,7 @@ function Taskfeed() {
         setTasks(data);
       }
           fetchData();
-  }, [year, month, startDate, endDate]);
+  }, []);
 
 const handleDragEnd = (result) => {
   if (!result.destination) {
