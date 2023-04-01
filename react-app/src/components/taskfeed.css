@@ -1,0 +1,114 @@
+ul{
+    background: lightgray;
+    margin-top: 20px;
+    padding-top: 1px;
+    padding-bottom: 1px;
+}
+li.task-data {
+    box-sizing: border-box;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    min-height: 90px;
+    padding: 10px;
+}  
+li{
+    list-style-type: none;
+    background-color: rgb(243, 194, 205);
+    justify-content: space-between;
+    margin: 10px;
+    border: 1px solid rgb(119, 119, 119);
+    border-radius: 5px;
+    padding: 20px;
+}
+.task-data{
+    text-align: left;
+}
+.strikethrough {
+    text-decoration: line-through;
+    background-color: rgb(197, 178, 182);
+}
+.hide-delete {
+    text-decoration: none;
+}  
+select{
+    width: 100px;
+    height: 20px;
+    margin: 5px;
+    font-size: 15px;
+    border: 1px solid rgb(163, 163, 163);
+    border-radius: 2px;
+}
+select:focus{
+    outline: none;
+}
+  
+  select,
+  input[type='date'] {
+    height: 35px;
+    margin-right: 10px;
+    font-size: 15px;
+    border: 1px solid rgb(163, 163, 163);
+    border-radius: 7px;
+    padding: 5px;
+    box-sizing: border-box;
+    appearance: none;
+  }
+  
+  select:focus,
+  input[type='date']:focus {
+    outline: none;
+    box-shadow: 0 0 0 2px rgba(0, 123, 255, 0.5);
+  }
+  
+  @media (max-width: 911px) {
+    select,
+    input[type='date'] {
+      width: 100%;
+      margin-right: 0;
+      margin-bottom: 10px;
+    }
+  }
+  
+.right-keys{
+    display: flex;
+    align-items: center;
+}
+
+
+.task-data h4 {
+    margin: 0 0 5px;
+    font-size: 18px;
+  }
+  
+  .task-data a {
+    color: #0072c6;
+    text-decoration: none;
+  }
+  
+  .task-data a:hover {
+    text-decoration: underline;
+  }
+  
+  .task-data p {
+    margin: 0;
+    font-size: 14px;
+  }
+  
+  @media (max-width: 480px) {
+    .task-data {
+      flex-wrap: wrap;
+    }
+  
+    .task-data > div {
+      width: 100%;
+    }
+  
+    .task-data h4 {
+      font-size: 16px;
+    }
+  
+    .task-data p {
+      font-size: 12px;
+    }
+  }
