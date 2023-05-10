@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { API_URL } from '../Config';
 import './newtask.css'
 
 
@@ -30,7 +31,7 @@ function NewTask() {
     }
     const data = { title, details, link };
     try {
-      const response = await fetch('http://localhost:5050/post', {
+      const response = await fetch(`${API_URL}/post`, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify(data)

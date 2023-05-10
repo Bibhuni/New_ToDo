@@ -42,6 +42,29 @@ select{
 select:focus{
     outline: none;
 }
+.dateTime {
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    margin: 0 10px;
+  }
+  
+  .years,
+  .dateRange {
+    display: flex;
+    align-items: center;
+    margin-bottom: 10px;
+  }
+  
+  .years div,
+  .dateRange div {
+    margin-right: 10px;
+  }
+  
+  label {
+    margin-right: 10px;
+  }
   
   select,
   input[type='date'] {
@@ -62,6 +85,18 @@ select:focus{
   }
   
   @media (max-width: 911px) {
+    .years,
+    .dateRange {
+      flex-basis: 100%;
+      justify-content: center;
+    }
+  
+    .years div,
+    .dateRange div {
+      margin-right: 0;
+      margin-bottom: 10px;
+    }
+  
     select,
     input[type='date'] {
       width: 100%;

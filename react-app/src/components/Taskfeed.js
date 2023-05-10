@@ -1,15 +1,15 @@
 import React, { useState, useEffect } from 'react';
 import { DragDropContext, Droppable, Draggable } from 'react-beautiful-dnd';
+import { API_URL } from '../Config';
 import "./taskfeed.css";
 
 
 function Taskfeed() {
   const [tasks, setTasks] = useState([]);
-  const [success, setSuccess] = useState(false);
 
   useEffect(() => {
     async function fetchData() {
-        let url = `http://localhost:5050/data`;
+        let url = `${API_URL}/data`;
         const response = await fetch(url);
         const data = await response.json();
         setTasks(data);
@@ -33,7 +33,7 @@ const handleDragEnd = (result) => {
 
   const ids = updatedTasks.map((task) => task._id);
 
-  fetch('http://localhost:5050/updatePositions', {
+  fetch(`${API_URL}/updatePositions`, {
     method: 'PUT',
     headers: { 'Content-Type': 'application/json' },
     body: JSON.stringify({ ids }),
@@ -77,7 +77,7 @@ const handleDragEnd = (result) => {
                             const newTasks = [...tasks];
                             newTasks[index].status = newTasks[index].status === 0 ? 1 : 0;
                             setTasks(newTasks);
-                            fetch(`http://localhost:5050/update/${task._id}`, {
+                            fetch(`${API_URL}/update/${task._id}`, {
                               method: 'PUT',
                               headers: { 'Content-Type': 'application/json' },
                               body: JSON.stringify({ status: newTasks[index].status })
@@ -91,12 +91,11 @@ const handleDragEnd = (result) => {
                             <button style={{background:'red'}}
                               onClick={() => {
                                 const newTasks = [...tasks];
-                                fetch(`http://localhost:5050/delete/${task._id}`,{
+                                fetch(`${API_URL}/delete/${task._id}`,{
                                   method:'DELETE'
                                 })
                                 .then(response => {
                                   if (response.ok) {
-                                    setSuccess(task);
                                     // Remove the deleted task from the state
                                     setTasks(newTasks.filter(t => t._id !== task._id));
                                   } else {
